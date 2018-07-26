@@ -1,0 +1,212 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (97.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (74.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20180725191609)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180725191609_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180725191609"]]
+  ↳ bin/rails:9
+  [1m[35m (88.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateLinks (20180725191631)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "links" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "url" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180725191631_create_links.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180725191631"]]
+  ↳ bin/rails:9
+  [1m[35m (91.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateComments (20180725191650)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "link_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180725191650_create_comments.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  ↳ db/migrate/20180725191650_create_comments.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_link_id" ON "comments" ("link_id")[0m
+  ↳ db/migrate/20180725191650_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180725191650"]]
+  ↳ bin/rails:9
+  [1m[35m (80.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddUserToLink (20180725192153)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "links" ADD "user_id" integer[0m
+  ↳ db/migrate/20180725192153_add_user_to_link.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_links_on_user_id" ON "links" ("user_id")[0m
+  ↳ db/migrate/20180725192153_add_user_to_link.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180725192153"]]
+  ↳ bin/rails:9
+  [1m[35m (83.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-07-26 01:54:58.805337"], ["updated_at", "2018-07-26 01:54:58.805337"]]
+  ↳ bin/rails:9
+  [1m[35m (59.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Destroy (54.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mLink Destroy (49.2ms)[0m  [1m[31mDELETE FROM "links"[0m
+  ↳ db/seeds.rb:18
+  [1m[36mComment Destroy (52.5ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Gregor Mendel"], ["last_name", "Halvorson Group"], ["email", "frances@konopelskileffler.net"], ["created_at", "2018-07-26 01:55:06.981050"], ["updated_at", "2018-07-26 01:55:06.981050"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (62.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "John Bardeen"], ["last_name", "Nader, Effertz and Daniel"], ["email", "kennith@corwin.name"], ["created_at", "2018-07-26 01:55:07.046534"], ["updated_at", "2018-07-26 01:55:07.046534"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (53.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Joseph J. Thomson"], ["last_name", "Miller, Hayes and Jakubowski"], ["email", "cora@hintzleffler.info"], ["created_at", "2018-07-26 01:55:07.101972"], ["updated_at", "2018-07-26 01:55:07.101972"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Leonard Euler"], ["last_name", "Daniel, Romaguera and Torphy"], ["email", "young@goyette.biz"], ["created_at", "2018-07-26 01:55:07.158939"], ["updated_at", "2018-07-26 01:55:07.158939"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (50.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Galileo Galilei"], ["last_name", "Cole Inc"], ["email", "ismaellarson@deckow.net"], ["created_at", "2018-07-26 01:55:07.213238"], ["updated_at", "2018-07-26 01:55:07.213238"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (52.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Robert Koch"], ["last_name", "Hoeger, Hyatt and Schmidt"], ["email", "jeramy@lynch.net"], ["created_at", "2018-07-26 01:55:07.267905"], ["updated_at", "2018-07-26 01:55:07.267905"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (52.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Max von Laue"], ["last_name", "Shields, Cummerata and Tromp"], ["email", "kena@champlinharber.org"], ["created_at", "2018-07-26 01:55:07.323934"], ["updated_at", "2018-07-26 01:55:07.323934"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (52.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Albrecht von Haller"], ["last_name", "Steuber-Leuschke"], ["email", "milfordkuhn@wiegandsanford.net"], ["created_at", "2018-07-26 01:55:07.380220"], ["updated_at", "2018-07-26 01:55:07.380220"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (50.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Stephen Hawking"], ["last_name", "Shanahan Inc"], ["email", "luigi@harvey.name"], ["created_at", "2018-07-26 01:55:07.433999"], ["updated_at", "2018-07-26 01:55:07.433999"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (52.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Robert Koch"], ["last_name", "Witting-Johnson"], ["email", "ronnielubowitz@osinski.org"], ["created_at", "2018-07-26 01:55:07.489404"], ["updated_at", "2018-07-26 01:55:07.489404"]]
+  ↳ db/seeds.rb:28
+  [1m[35m (52.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:28
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[36mLink Create (0.4ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["url", "https://pigment.github.io/fake-logos/logos/medium/color/8.png"], ["created_at", "2018-07-26 01:55:07.555912"], ["updated_at", "2018-07-26 01:55:07.555912"], ["user_id", 4]]
+  ↳ db/seeds.rb:37
+  [1m[35m (52.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[36mLink Create (0.2ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["url", "https://pigment.github.io/fake-logos/logos/medium/color/12.png"], ["created_at", "2018-07-26 01:55:07.611327"], ["updated_at", "2018-07-26 01:55:07.611327"], ["user_id", 4]]
+  ↳ db/seeds.rb:37
+  [1m[35m (53.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[36mLink Create (0.3ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["url", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2018-07-26 01:55:07.666568"], ["updated_at", "2018-07-26 01:55:07.666568"], ["user_id", 4]]
+  ↳ db/seeds.rb:37
+  [1m[35m (108.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[36mLink Create (0.6ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["url", "https://pigment.github.io/fake-logos/logos/medium/color/8.png"], ["created_at", "2018-07-26 01:55:07.778193"], ["updated_at", "2018-07-26 01:55:07.778193"], ["user_id", 8]]
+  ↳ db/seeds.rb:37
+  [1m[35m (150.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[36mLink Create (0.6ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["url", "https://pigment.github.io/fake-logos/logos/medium/color/10.png"], ["created_at", "2018-07-26 01:55:07.949495"], ["updated_at", "2018-07-26 01:55:07.949495"], ["user_id", 5]]
+  ↳ db/seeds.rb:37
+  [1m[35m (63.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[36mLink Create (0.2ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["url", "https://pigment.github.io/fake-logos/logos/medium/color/3.png"], ["created_at", "2018-07-26 01:55:08.022197"], ["updated_at", "2018-07-26 01:55:08.022197"], ["user_id", 5]]
+  ↳ db/seeds.rb:37
+  [1m[35m (54.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[36mLink Create (0.5ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["url", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["created_at", "2018-07-26 01:55:08.082129"], ["updated_at", "2018-07-26 01:55:08.082129"], ["user_id", 5]]
+  ↳ db/seeds.rb:37
+  [1m[35m (68.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[36mLink Create (0.4ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["url", "https://pigment.github.io/fake-logos/logos/medium/color/9.png"], ["created_at", "2018-07-26 01:55:08.155660"], ["updated_at", "2018-07-26 01:55:08.155660"], ["user_id", 1]]
+  ↳ db/seeds.rb:37
+  [1m[35m (63.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[36mLink Create (0.2ms)[0m  [1m[32mINSERT INTO "links" ("url", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["url", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["created_at", "2018-07-26 01:55:08.221623"], ["updated_at", "2018-07-26 01:55:08.221623"], ["user_id", 1]]
+  ↳ db/seeds.rb:37
+  [1m[35m (62.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:37
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:50
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "link_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Quia rerum est."], ["user_id", 6], ["link_id", 4], ["created_at", "2018-07-26 01:55:08.304285"], ["updated_at", "2018-07-26 01:55:08.304285"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (56.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:50
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "link_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Necessitatibus nam modi."], ["user_id", 5], ["link_id", 6], ["created_at", "2018-07-26 01:55:08.365647"], ["updated_at", "2018-07-26 01:55:08.365647"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (65.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:50
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "link_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Est et amet."], ["user_id", 9], ["link_id", 1], ["created_at", "2018-07-26 01:55:08.433526"], ["updated_at", "2018-07-26 01:55:08.433526"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (63.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:50
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "link_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Inventore sed ipsum."], ["user_id", 7], ["link_id", 4], ["created_at", "2018-07-26 01:55:08.498957"], ["updated_at", "2018-07-26 01:55:08.498957"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (62.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:50
+  [1m[36mComment Create (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("content", "user_id", "link_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "Molestiae deleniti quos."], ["user_id", 9], ["link_id", 1], ["created_at", "2018-07-26 01:55:08.566322"], ["updated_at", "2018-07-26 01:55:08.566322"]]
+  ↳ db/seeds.rb:50
+  [1m[35m (62.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:50
